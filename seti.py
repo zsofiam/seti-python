@@ -30,15 +30,34 @@ def base_to_decimal(digits, original_base):
     return decimal_number
 
 
+def digits_as_string(digits, base):
+    if base > 16:
+        raise ValueError("Base cannot be greater than 16")
+    string_representation_of_digits = ""
+    for i in range(len(digits)):
+        if digits[i] > (base-1):
+            raise ValueError("Digit cannot be greater than base")
+        else:
+            if digits[i] > 9:
+                character = change_digit_to_letter(digits[i])
+            else:
+                character = str(digits[i])
+        string_representation_of_digits += character
+    return string_representation_of_digits
+     
+
+def change_digit_to_letter(digit):
+    letters = ['A', 'B', 'C', 'D', 'E', 'F']
+    letter = letters[digit-10]
+    return letter
+
+
 print(decimal_to_binary(20))
 print(binary_to_decimal([1, 0, 1, 0, 0]))
 print(decimal_to_base(20, 8))
 print(base_to_decimal([2, 4], 8))
-
-
-def digits_as_string(digits, base):
-    """Returns the string representation of an array of digits given in base"""
-    pass
+print(digits_as_string([1, 2, 3, 4], 8))
+print(digits_as_string([2, 15, 9, 11], 16))
 
 
 def convert_base(original_digits, original_base, destination_base):
