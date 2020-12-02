@@ -14,7 +14,6 @@ def binary_to_decimal(binary_digits):
     return decimal_number
 
 
-
 def decimal_to_base(decimal_number, destination_base):
     destination_base_list = []
     while decimal_number > 0:
@@ -24,14 +23,17 @@ def decimal_to_base(decimal_number, destination_base):
     return destination_base_list
 
 
+def base_to_decimal(digits, original_base):
+    decimal_number = 0
+    for i in range(len(digits)):
+        decimal_number += digits[i] * original_base**(len(digits)-i-1)
+    return decimal_number
+
+
 print(decimal_to_binary(20))
 print(binary_to_decimal([1, 0, 1, 0, 0]))
 print(decimal_to_base(20, 8))
-
-
-def base_to_decimal(digits, original_base):
-    """Returns the decimal (number) representation of an array of digits given in original_base"""
-    pass
+print(base_to_decimal([2, 4], 8))
 
 
 def digits_as_string(digits, base):
