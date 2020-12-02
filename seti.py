@@ -6,12 +6,16 @@ def decimal_to_binary(decimal_number):
         decimal_number //= 2
     return binary_list
 
-print(decimal_to_binary(20))
 
 def binary_to_decimal(binary_digits):
-    """Returns the decimal (number) representation of a binary number represented by an array of 0/1 digits"""
-    pass
+    decimal_number = 0
+    for i in range(len(binary_digits)):
+        decimal_number += binary_digits[i] * 2**(len(binary_digits)-i-1)
+    return decimal_number
 
+
+print(decimal_to_binary(20))
+print(binary_to_decimal([1, 0, 1, 0, 0]))
 
 def decimal_to_base(decimal_number, destination_base):
     """Returns the digits in destination_base representation of the decimal number"""
