@@ -44,12 +44,18 @@ def digits_as_string(digits, base):
                 character = str(digits[i])
         string_representation_of_digits += character
     return string_representation_of_digits
-     
+
 
 def change_digit_to_letter(digit):
     letters = ['A', 'B', 'C', 'D', 'E', 'F']
     letter = letters[digit-10]
     return letter
+
+
+def convert_base(original_digits, original_base, destination_base):
+    decimal_number = base_to_decimal(original_digits, original_base)
+    destination_base_number = decimal_to_base(decimal_number, destination_base)
+    return destination_base_number
 
 
 print(decimal_to_binary(20))
@@ -58,8 +64,4 @@ print(decimal_to_base(20, 8))
 print(base_to_decimal([2, 4], 8))
 print(digits_as_string([1, 2, 3, 4], 8))
 print(digits_as_string([2, 15, 9, 11], 16))
-
-
-def convert_base(original_digits, original_base, destination_base):
-    """Conversion from any base to any other base"""
-    pass
+print(convert_base([1, 1, 2, 0], 3, 2))
