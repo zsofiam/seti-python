@@ -58,6 +58,12 @@ def convert_base(original_digits, original_base, destination_base):
     return destination_base_number
 
 
+def convert_base_advanced(original_digits, original_base, destination_base):
+    destination_base_number = 0
+    
+    return destination_base_number
+
+
 print(decimal_to_binary(20))
 print(binary_to_decimal([1, 0, 1, 0, 0]))
 print(decimal_to_base(20, 8))
